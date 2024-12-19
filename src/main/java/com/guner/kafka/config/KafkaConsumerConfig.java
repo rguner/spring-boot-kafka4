@@ -70,7 +70,7 @@ public class KafkaConsumerConfig {
     }
      */
 
-    // this DefaultErrorHandler to automatically send messages to the DLT.
+    // this DefaultErrorHandler to automatically send messages to the DLT. ( topic-1-dlt created by application)
     @Bean
     public DefaultErrorHandler errorHandler(KafkaTemplate<String, String> kafkaTemplate) {
         DeadLetterPublishingRecoverer recoverer = new DeadLetterPublishingRecoverer(kafkaTemplate);

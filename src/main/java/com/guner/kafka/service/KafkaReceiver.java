@@ -19,7 +19,7 @@ public class KafkaReceiver {
     // retry mechanism on consumer config
     // https://www.baeldung.com/spring-retry-kafka-consumer this method is blocking retry
     // if it is decided to retrying one message, all messages on topic wait during interval...
-    // I couldnt see messages on dlt topic with this method..
+    // DeadLetterPublishingRecoverer should be used for sending message to dlt topic
     @KafkaListener(topics = "topic-1", groupId = "group-r")
     public void listenAndRetryIfRequired(String message) {
         log.info("-----   Received Message in group group-2: {}", message);
